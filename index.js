@@ -104,7 +104,7 @@ const routes = [
 ];
 routes.forEach((route) => {
   app.get(route.path, (req, res) => {
-    const filePath = path.join(process.cwd(), "public", route.file);
+    const filePath = path.join(process.cwd(), route.file);
     fs.readFile(filePath, "utf8", (err, data) => {
       if (err) {
         console.error("Error loading page:", err);

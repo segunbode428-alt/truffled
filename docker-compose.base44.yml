@@ -1,0 +1,12 @@
+services:
+  web:
+    image: node:22-bookworm
+    working_dir: /app
+    volumes:
+      - ./:/app
+    environment:
+      - PORT=3000
+      - BASE44_PUBLIC_HOST_SUFFIX=${BASE44_PUBLIC_HOST_SUFFIX}
+    ports:
+      - "3000:3000"
+    command: sh -c "npm install --omit=optional && npm start"
